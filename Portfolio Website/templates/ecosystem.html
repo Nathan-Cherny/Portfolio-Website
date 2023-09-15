@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+        <script src="{{url_for('static', filename='/js/ecosystem.js')}}"></script>
+        <link rel="stylesheet" href="{{url_for('static', filename='/css/ecosystem.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='/css/all.css')}}">
+        <script>
+            function renderAllCharts(){
+                charts['population'].render()
+                charts['stats']['Fish'].render()
+                charts['stats']['Shark'].render()
+            }
+
+            function makeGraphPlotPoint(gen, value){
+                return {x:gen, y:value}
+            }
+
+            function updateChartData(report){
+                updatePopulationChart(report)
+                updateStatsChart(report, "Fish")
+                updateStatsChart(report, "Shark")
+            }
+
+            function updatePopulationChart(report){
+                let chartData = charts['population'].options.data
+                chartData[0].dataPoints.push(makeGraphPlotPoint(report['generation'], report['population']['Fish Population']))
+                chartData[1].dataPoints.push(makeGraphPlotPoint(report['generation'], report['population']['Shark Population']))
+                chartData[2].dataPoints.push(makeGraphPlotPoint(report['generation'], report['population']['Plant Population']))
+            }
+
+            function updateStatsChart(report, animal){
+                let chartData = charts["stats"][animal].options.data
+                chartData[0].dataPoints.push(makeGraphPlotPoint(report['generation'], report['stats'][animal]['age']))
+                chartData[1].dataPoints.push(makeGraphPlotPoint(report['generation'], report['stats'][animal]['speed']))
+                chartData[2].dataPoints.push(makeGraphPlotPoint(report['generation'], report['stats'][animal]['metabolism']))
+                chartData[3].dataPoints.push(makeGraphPlotPoint(report['generation'], report['stats'][animal]['matingDesire']))
+            }
+
+            function updateCharts(){
+                let report = game.runGen()
+                console.log(report)
+                updateChartData(report)
+                renderAllCharts()
+                if(!(game.generation < game.endGeneration && game.populationsAreAlive())){
+                    updateChartData(game.generateReport())
+                    renderAllCharts()
+                    clearInterval(updateChartsInterval)
+                }
+            }
+
+            function createCharts(){
+                let populationData = {
+                    toolbar:{
+                        buttonBorderColor: "#FFFFFF"
+                    },
+                    zoomEnabled: true,
+                    height: 500,
+                    axisX:{
+                        title: "Generation",
+                        viewportMinimum: 1
+                    },
+                    theme: "dark1",
+                    axisY:{
+                        title: "Population",
+                        gridThickness: 0
+                    },
+                    title: {
+                        text: "Species Population By Day"
+                    },
+                    data:[{
+                        type:"line",
+                        markerType: "none",
+                        dataPoints: [],
+                        showInLegend: true,
+                        name: "Fish Population",
+                        toolTipContent: "<strong>{y}</strong> Fish Alive"
+                    },
+                    {
+                        type:"line",
+                        markerType: "none",
+                        dataPoints: [],
+                        showInLegend: true,
+                        name: "Shark Population",
+                        toolTipContent: "<strong>{y}</strong> Shark(s) Alive"
+                    },
+                    {
+                        type:"line",
+                        markerType: "none",
+                        dataPoints: [],
+                        showInLegend: true,
+                        name: "Plant Population",
+                        toolTipContent: "<strong>{y}</strong> Plant(s) Alive"
+                    },]
+            }
+
+            let fishStatsData = {
+                    toolbar:{
+                        buttonBorderColor: "#FFFFFF"
+                    },
+                    zoomEnabled: true,
+                    height: 500,
+                    axisX:{
+                        title: "Generation",
+                        viewportMinimum: 1
+                    },
+                    theme: "dark1",
+                    axisY:{
+                        title: "Value",
+                        gridThickness: 0
+                    },
+                    title: {
+                        text: "Average Stat for Fish"
+                    },
+                    data:[{
+                        type:"line",
+                        markerType: "none",
+                        dataPoints: [],
+                        showInLegend: true,
+                        name: "Age",
+                        toolTipContent: "<strong>{y}</strong>"
+                    },
+                    {
+                        type:"line",
+                        markerType: "none",
+                        dataPoints: [],
+                        showInLegend: true,
+                        name: "speed",
+                        toolTipContent: "<strong>{y}</strong>"
+                    },
+                    {
+                        type:"line",
+                        markerType: "none",
+                        dataPoints: [],
+                        showInLegend: true,
+                        name: "metabolism",
+                        toolTipContent: "<strong>{y}</strong>"
+                    },
+                    {
+                        type:"line",
+                        markerType: "none",
+                        dataPoints: [],
+                        showInLegend: true,
+                        name: "matingDesire",
+                        toolTipContent: "<strong>{y}</strong>"
+                    }]
+            }
+
+            let sharkStatsData = JSON.parse(JSON.stringify(fishStatsData))
+            sharkStatsData["title"]["text"] = "Average Stat for Shark"
+
+            charts["population"] = new CanvasJS.Chart("populationChart", populationData)
+            charts["stats"] = {
+                "Fish": new CanvasJS.Chart("fishStatsChart", fishStatsData),
+                "Shark": new CanvasJS.Chart("sharkStatsChart", sharkStatsData)
+            }
+            renderAllCharts()
+        }   
+
+        function translateInputValueToInt(value){
+            if(value == "" || isNaN(Number(value))){
+                return undefined
+            }
+            else{
+                return Number(value)
+            }
+        }
+       
+        function beginSimulation(){
+            inputs = document.getElementsByTagName("input")
+            let arguments_ = {}
+            for(let i = 0; i < inputs.length; i++){
+                let input = inputs[i]
+                
+                if(input.name.slice(-3) == "Low"){
+                    let range = [translateInputValueToInt(input.value), translateInputValueToInt(inputs[i + 1].value)]
+                    i++
+                    arguments_[input.name.split("-")[0]] = range
+                    if(range[0] == undefined && range[1] == undefined){
+                        arguments_[input.name.split("-")[0]] = undefined
+                    }
+                }else{
+                    arguments_[input.name] = translateInputValueToInt(input.value)
+                }
+            }
+
+            document.getElementById("inputDiv").remove()
+            game = new Game(arguments_)
+            charts = {}
+            createCharts()
+            updateChartsInterval = setInterval(updateCharts, 100)
+        }
+        
+        </script>
+    </head>
+    <body>
+        <ul class="navigation">
+            <li ><a href="/" >Home</a></li>
+            <li class="active"><a href="ecosystem">Ecosystem</a></li>
+            <li><a href="nandCalculator">nandCalculator</a></li>
+            <li><a href="sudoku">Sudoku</a></li>
+        </ul>
+        <div style="width: 100%; margin: auto; position: absolute; top: 100px; left: -1px">
+            <div id="populationChart" style="position: absolute; width: 100%; top: 0px">
+            </div> 
+            <div id="fishStatsChart" style="position: absolute; width: 50%; top: 500px">
+            </div> 
+            <div id="sharkStatsChart" style="position: absolute; width: 50%; top: 500px; left: 50%">
+            </div> 
+        </div>
+        <div id="inputDiv">
+            <div class="inputs">
+                <div>
+                    <input name="fish" placeholder="Fish Population">
+                    <input name="sharks" placeholder="Shark Population">
+                    <input name="plants" placeholder="Plant Population">
+                </div>
+                <div>
+                    <input name="endGeneration" placeholder="Generation Cap">
+                </div>
+                <div>
+                    <input name="plantCalories-Low" placeholder="Plant Calorie Range (Low)">
+                    <input name="plantCalories-High" placeholder="Plant Calorie Range (High)">
+                    <input name="plantGrowth" placeholder="Plant Growth">
+                </div>
+                <div>
+                    <input name="speedRange-Low" placeholder="Speed Range (Low)">
+                    <input name="speedRange-High" placeholder="Speed Range (High)">
+                    <input name="metabolismRange-Low" placeholder="Metabolism Range (Low)">
+                    <input name="metabolismRange-High" placeholder="Metabolism Range (High)">
+                    <input name="matingDesireRange-Low" placeholder="Mating Desire Range (Low)">
+                    <input name="matingDesireRange-High" placeholder="Mating Desire Range (High)">
+                </div>    
+            </div>
+            <button onclick="beginSimulation()" class="center">Run</button>
+        </div>
+        
+    </body>
+</html>
