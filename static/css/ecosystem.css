@@ -1,0 +1,40 @@
+canvas{
+    border: 1px solid white;
+}
+
+p{
+    color: white
+}
+
+div{
+    margin: auto;
+    text-align: center;
+}
+
+.inputs{
+    padding: 25px;
+    display: grid;
+    width: 90%; 
+    margin-left: auto; 
+    margin-right: auto;
+    grid-auto-flow: column; 
+    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
+}
+
+.inputs div{
+    border: 1px solid black;
+    text-align: center;
+    margin: auto;
+    height: 100%;
+}
+
+input{
+    margin: auto;
+}
+
+.center{
+    padding: 25px;
+    display: block;
+    margin: auto;
+    width: 50%;
+}

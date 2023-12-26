@@ -1,0 +1,164 @@
+.center{
+    margin: 0 auto;
+    width: 50%;
+    padding: 25px;
+}
+
+div{
+    text-align: center;
+}
+
+td, tr, table{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table{
+    border: 3px solid black;
+    cursor:default;
+    background-color: #ddeaf0
+}
+
+td{
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    position: relative
+}
+
+#boardContainer{
+    height: 100%;
+    border: 1px solid black;
+}
+
+#useHint{
+    background: #f7d383;
+    cursor: pointer;
+}
+
+.helper{
+    font-size: 75%;
+}
+
+input{
+    text-align: center;
+}
+
+.displayData{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-auto-flow: column;
+}
+
+.displayData div{
+    margin: 0 auto;
+    padding: 20px;
+}
+
+button{
+    outline: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.option{
+    position: absolute;
+    margin: 0 auto;
+    padding: 2.5px;
+    font-size: 75%;
+}
+
+table tr:nth-of-type(3n){
+    border-bottom: 3px solid black
+}
+
+table tr td:nth-of-type(3n):not(.numberSelect td){
+    border-right: 3px solid black;
+}
+
+td:hover{
+    background-image: linear-gradient(rgb(0 0 0/25%) 0 0)
+}
+
+.highlight{
+    background-image: linear-gradient(rgb(255 255 255/75%) 0 0)
+}
+
+.numberSelect{
+    background-color: #f7d383;
+    cursor: pointer
+}
+
+a{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#settings{
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.numberSelected{
+    font-weight:900;
+    background-image: linear-gradient(rgb(0 0 0/25%) 0 0)
+}
+
+.topLeft{
+    top: 0;
+    left: 0
+}
+
+.topRight{
+    top: 0;
+    right:0
+}
+
+.bottomLeft{
+    bottom: 0;
+    left: 0
+}
+
+.bottomRight{
+    bottom: 0;
+    right: 0;
+}
+
+.fullCenter{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.topCenter{
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0)
+}
+
+.leftCenter{
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%)
+}
+
+.rightCenter{
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%)
+}
+
+.bottomCenter{
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0)
+}

@@ -1,0 +1,51 @@
+input{
+    width: 25px;
+    height: 25px;
+    margin: 2px
+}
+
+button{
+    padding: 25px;
+}
+
+p{
+    padding: 10px;
+    font-size: 30px;
+    margin: 0;
+}
+
+.calculator{
+    display: grid; 
+    grid-auto-flow: column; 
+    grid-template-columns: 2fr 2fr 1fr; 
+    width: 90%; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+h1{
+    font-size: 65px;
+    margin:0px
+}
+
+.mainDiv{
+    border: 1px solid black; 
+    width: 90%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    padding: 20px;
+    text-align: center;
+}
+
+.div32Bit{
+    padding: 5px;
+    text-align: center;
+    border: .5px solid black
+}
+
+.div32Bit div{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 10px;
+    text-align: left;
+}

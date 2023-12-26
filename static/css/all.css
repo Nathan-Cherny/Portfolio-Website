@@ -1,0 +1,96 @@
+body{
+    margin: 0;
+    background-color: #406060;
+}
+
+p, h1, h2{
+    color: white;
+}
+
+.navigation{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    list-style-type: none;
+    background-color: #2a2a2a;
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.navigation li{
+    float: left;
+}
+
+.navigation li a{
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.active{
+    background-color: #1aaa1a
+}
+
+.navigation li:hover:not(.active){
+    background-color: #5a5a5a
+}
+
+.popup{
+    border: 1px solid black;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(0, 0, 0, 0);
+    z-index: -1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-message{
+    border-radius: 20px;
+    border: 5px solid black;
+    padding: 5px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    color: white;
+    visibility: hidden;
+    opacity: 0; 
+    background-color: #008080;
+    z-index: 101;
+    width: 75%;
+}
+
+.popup-open{
+    background-color: rgb(0, 0, 0, 0.75);
+    z-index: 100;
+}
+
+.popup-message-open{
+    visibility: visible;
+    opacity: 1
+}
+
+.popup-message button{
+    border-radius: 10px;
+    width: 25%;
+    padding: 5px;
+}
+
+.popup-message p{
+    font-size: 20px;
+}
+
+.popup-message h1{
+    font-size: 65px
+}
