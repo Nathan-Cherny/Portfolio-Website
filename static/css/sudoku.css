@@ -9,7 +9,7 @@ div{
 }
 
 td, tr, table{
-    border: 1px solid black;
+    border: 2px solid black;
     border-collapse: collapse;
 }
 
@@ -28,7 +28,6 @@ td{
 
 #boardContainer{
     height: 100%;
-    border: 1px solid black;
 }
 
 #useHint{
@@ -104,7 +103,6 @@ a{
     top: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%);
-    border: 1px solid black;
     padding: 20px;
 }
 

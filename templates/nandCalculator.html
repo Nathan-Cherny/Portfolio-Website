@@ -111,8 +111,8 @@
             <li class="active"><a href="nandCalculator">nandCalculator</a></li>
             <li><a href="sudoku">Sudoku</a></li>
 
-            <li style="float: right"><a ><b>Code</b></a></li>
-            <li onclick="togglePopup()" style="float: right"><a ><b>What is this project?</b></a></li>
+            <li onclick="togglePopup('popup-code')" style="float: right"><a ><b>Code</b></a></li>
+            <li onclick="togglePopup('popup-help')" style="float: right"><a><b>What is this project?</b></a></li>
         </ul>
         <div class="mainDiv">
             <div class="calculator">
@@ -144,14 +144,22 @@
             <h2 id="binAnswer"></h2>
         </div>
 
-        <div class="popup">
+        <div class="popup" id="popup-help">
             <div class="popup-message">
                 <h1>Nand Calculator</h1>
                 <p>This project can add and subtract 2 32 bit numbers to each other using nothing but logic gates (and a tiny bit of JS logic).</p>
                 <p>The boxes in each Number represent a binary number. Check off the boxes in the appropriate order to get your binary numbers, and then click the 'Calculate' button to see the result.</p>
                 <p>While I'm more accustomed to coding in higher level languages, these very low level concepts fascinated me, and teaching myself them has been the most fun coding I've had in a while.</p>
                 <p>This project challenged me in more mathy, logical ways - ways I hadn't been challenged much before. It was really fun, although subtraction was a lot harder than I thought it would be.</p>
-                <button class="closePopUpButton" onclick="togglePopup()">Close</button>
+                <button class="closePopUpButton" onclick="togglePopup('popup-help')">Close</button>
+            </div>
+        </div>
+
+        <div class="popup" id="popup-code" >
+            <div class="popup-message" style="height: 75%;">
+                <h1>Code</h1>
+                <p style="text-align: left; padding: 10px;" id="code"></code><p>
+                <button onclick="togglePopup('popup-code')">Close</button>
             </div>
         </div>
 

@@ -169,6 +169,8 @@
        
         function beginSimulation(){
             inputs = document.getElementsByTagName("input")
+            output = document.getElementById("graphs")
+            output.style.display = "block"
             let arguments_ = {}
             for(let i = 0; i < inputs.length; i++){
                 let input = inputs[i]
@@ -203,10 +205,10 @@
             <li><a href="nandCalculator">nandCalculator</a></li>
             <li><a href="sudoku">Sudoku</a></li>
 
-            <li style="float: right"><a ><b>Code</b></a></li>
-            <li onclick="togglePopup()" style="float: right"><a ><b>What is this project?</b></a></li>
+            <li onclick="togglePopup('popup-code')" style="float: right"><a ><b>Code</b></a></li>
+            <li onclick="togglePopup('popup-help')" style="float: right"><a><b>What is this project?</b></a></li>
         </ul>
-        <div style="width: 100%; margin: auto; position: absolute; top: 100px; left: -1px">
+        <div id="graphs" style="width: 100%; margin: auto; position: absolute; top: 100px; left: -1px; display: none">
             <div id="populationChart" style="position: absolute; width: 100%; top: 0px">
             </div> 
             <div id="fishStatsChart" style="position: absolute; width: 50%; top: 500px">
@@ -241,7 +243,7 @@
             <button onclick="beginSimulation()" class="center">Run</button>
         </div>
 
-        <div class="popup">
+        <div class="popup" id="popup-help">
             <div class="popup-message">
                 <h1>Ecosystem Simulator</h1>
                 <p>This project simulates a natural ecosystem! There are Fish, Shark, and Plants. Fish eat the Plants, Sharks eat the Fish.</p>
@@ -253,7 +255,15 @@
                 
                 <p>Running the simulation generates graphs that show the average value of each trait. You should see that as, for example, Sharks start eating all the fish, toward the end, the average Speed trait for the Fish is higher. Natural selection!</p>
                 <p>This project challenged me in organizational ways. Having multiple instances of classes interact with each other, while recording everything and graphing it all required a lot of clear organization.</p>
-                <button class="closePopUpButton" onclick="togglePopup()">Close</button>
+                <button class="closePopUpButton" onclick="togglePopup('popup-help')">Close</button>
+            </div>
+        </div>
+
+        <div class="popup" id="popup-code" >
+            <div class="popup-message" style="height: 75%;">
+                <h1>Code</h1>
+                <p style="text-align: left; padding: 10px;" id="code"></code><p>
+                <button onclick="togglePopup('popup-code')">Close</button>
             </div>
         </div>
         

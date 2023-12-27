@@ -289,6 +289,8 @@
                 updateStrikes()
                 updateHints()
             }
+
+
         </script>
     </head>
     <body>
@@ -298,8 +300,8 @@
             <li><a href="nandCalculator">nandCalculator</a></li>
             <li class="active"><a href="sudoku">Sudoku</a></li>
 
-            <li style="float: right"><a ><b>Code</b></a></li>
-            <li onclick="togglePopup()" style="float: right"><a ><b>What is this project?</b></a></li>
+            <li onclick="togglePopup('popup-code')" style="float: right"><a ><b>Code</b></a></li>
+            <li onclick="togglePopup('popup-help')" style="float: right"><a><b>What is this project?</b></a></li>
         </ul>
         <div id="settings">
             <h1>Sudoku!</h1>
@@ -349,7 +351,7 @@
             </div>
         </div>
 
-        <div class="popup">
+        <div class="popup" id="popup-help">
             <div class="popup-message">
                 <h1>Sudoku</h1>
                 <p>This project is Sudoku!</p>
@@ -357,7 +359,15 @@
                 <p>You can customize a lot of options before playing. You can change the difficulty to alter how many tiles are shown, change the number of failed guesses before losing, or change the number of hints you have.</p>
                 <p>When playing, click on the numbers at the bottom in orange to "select" a number, then right click in a tile to put a marker or left to put a guess.</p>
                 <p>This project challenged me with more algorithmic problems, as well as fiddling around with JS and CSS a lot. Each board is randomly generated from the start, and making that algorithm was a challenge. But, I love Sudoku, and I'm very proud of the end product.</p>
-                <button class="closePopUpButton" onclick="togglePopup()">Close</button>
+                <button onclick="togglePopup('popup-help')">Close</button>
+            </div>
+        </div>
+
+        <div class="popup" id="popup-code">
+            <div class="popup-message" style="height: 75%;">
+                <h1>Code</h1>
+                <p style="text-align: left; padding: 10px;" id="code"></code><p>
+                <button onclick="togglePopup('popup-code')">Close</button>
             </div>
         </div>
     </body>
