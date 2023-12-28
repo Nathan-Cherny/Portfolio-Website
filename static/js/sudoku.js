@@ -192,28 +192,28 @@ class Board{
                 let invalidNumbers = this.getInvalidNumbers(board, row, col) // get all the invalid numbers for the unit
                 let validNumber = this.getRandomValidNumber(invalidNumbers) // throw that into the get valid number function, get a valid number
                 if(!validNumber){board[row] = getEmptyList(9); col = -1} /* if the number is undefined that means that the invalidNumbers list 
-                                                                            we gave this was [1-9]. this can happen because we're randomly picking
-                                                                            numbers - the random number picked could be valid in that micro
-                                                                            scenario but in the macro view point it could force the rest of the row
-                                                                            to be invalid by taking away a number that could only work in that spot.
-                                                                            to circumvent this we simply check if the number we got back is 
-                                                                            undefined and then if it is, we try again, setting the row back to 
-                                                                            default and the col to -1 (and then the for loop sets it back to 0)
-                                                                            and it won't take that long to generate a valid board.*/
+                we gave this was [1-9]. this can happen because we're randomly picking
+                numbers - the random number picked could be valid in that micro
+                scenario but in the macro view point it could force the rest of the row
+                to be invalid by taking away a number that could only work in that spot.
+                to circumvent this we simply check if the number we got back is 
+                undefined and then if it is, we try again, setting the row back to 
+                default and the col to -1 (and then the for loop sets it back to 0)
+                and it won't take that long to generate a valid board.*/
                 else{board[row][col] = validNumber}
                 validNumberAttempts++
                 if(validNumberAttempts > 500){                              /* similarly, sometimes the way the board itself
-                                                                               is constructed can lead to impossible unit
-                                                                               placements. to circumvent this, we count how
-                                                                               many times this loop has been done (basically
-                                                                               how many times we have attempted to fill in
-                                                                               a unit) and if its over some arbitrary amount,
-                                                                               like 500, we recursively start over and return
-                                                                               what works - similar to how we do it for each
-                                                                               row, but starting the whole thing over for
-                                                                               each row is redundant and would make this much
-                                                                               longer.
-                                                                            */
+                is constructed can lead to impossible unit
+                placements. to circumvent this, we count how
+                many times this loop has been done (basically
+                how many times we have attempted to fill in
+                a unit) and if its over some arbitrary amount,
+                like 500, we recursively start over and return
+                what works - similar to how we do it for each
+                row, but starting the whole thing over for
+                each row is redundant and would make this much
+                longer.
+            */
                     return this.generateValidBoard()
                 }
             }

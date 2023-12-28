@@ -7,13 +7,43 @@ p, h1, h2{
     color: white;
 }
 
+p{
+    font-size: 30px;
+}
+
+h1{
+    padding: 10px;
+    font-size: 65px
+}
+
 button{
     border-radius: 20px;
 }
 
 div{
-    border: 2px solid black;
-    border-collapse: collapse;
+    border-radius: 10px;
+    background-color: #105050;
+}
+
+input, select, button{
+    font-size: 20px;
+}
+
+button, input, select{
+    background-color: #E0E5E0
+}
+
+p, h1, h2{
+    color: #E0E5E0
+}
+
+.positionCenter{
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    box-shadow: 2px 2px 2px 2px black;
 }
 
 .navigation{

@@ -29,8 +29,8 @@ h1{
 }
 
 .mainDiv{
-    border: 1px solid black; 
-    width: 90%; 
+    border: 2px solid black; 
+    width: 75%; 
     margin-left: auto; 
     margin-right: auto; 
     padding: 20px;
@@ -40,7 +40,7 @@ h1{
 .div32Bit{
     padding: 5px;
     text-align: center;
-    border: .5px solid black
+    border: 2px solid black; 
 }
 
 .div32Bit div{

@@ -1,11 +1,14 @@
 .center{
     margin: 0 auto;
-    width: 50%;
-    padding: 25px;
+    width: 100%;
+    padding: 5px;
 }
+
 
 div{
     text-align: center;
+    border: 2px solid black;
+    border-collapse: collapse;
 }
 
 td, tr, table{
@@ -14,7 +17,7 @@ td, tr, table{
 }
 
 table{
-    border: 3px solid black;
+    border: 2px solid black;
     cursor:default;
     background-color: #ddeaf0
 }
@@ -31,7 +34,6 @@ td{
 }
 
 #useHint{
-    background: #f7d383;
     cursor: pointer;
 }
 
@@ -54,7 +56,7 @@ input{
 
 .displayData div{
     margin: 0 auto;
-    padding: 20px;
+    padding: 5px;
 }
 
 button{
@@ -92,18 +94,18 @@ td:hover{
     cursor: pointer
 }
 
+#game{
+    margin-top: 25px;
+}
+
+#game p{
+    font-size: 20px;
+}
+
 a{
     color: blue;
     text-decoration: underline;
     cursor: pointer;
-}
-
-#settings{
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    padding: 20px;
 }
 
 .numberSelected{
