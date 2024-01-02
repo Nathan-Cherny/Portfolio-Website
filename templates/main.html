@@ -2,6 +2,10 @@
 <html>
     <head>
         <link rel="stylesheet" href="{{url_for('static', filename='/css/all.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='/css/main.css')}}">
+        <script src="{{url_for('static', filename='/js/main.js')}}"></script>
+        <script src="{{url_for('static', filename='/js/all.js')}}"></script>
+        <script src="https://kit.fontawesome.com/6566feb177.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <ul class="navigation">
@@ -11,6 +15,50 @@
             <li><a href="sudoku">Sudoku</a></li>
         </ul>
         
-        <h1>Nathan Cherny - Aspiring Programmer</h1>
+        <section id="home" class="divider horizontal" style="background-color: rgb(32, 96, 96); border: none">
+            <div style="align-self: center;">
+                <h1 style="text-align: left;">
+                    Hey, I'm <span style="color: #f5b964">Nathan Cherny</span>!
+                </h1>
+                <p>Computer Science major in Freshman year at Temple University.</p>
+                <button>About Me <i class="fa-solid fa-arrow-down"></i></button>
+            </div>
+            <img src="{{url_for('static', filename='/resources/me.png')}}">
+            <div class="links" style="flex-direction: column;">
+                <a href="https://github.com/Nathan-Cherny" class="fa-brands fa-github fa-5x" target="_blank"></a>
+                <a href="https://www.linkedin.com/in/nathancherny" class="fa fa-linkedin fa-5x" target="_blank"></a>
+            </div>
+        </section>
+
+        <section id="about_me" class="divider" style="background-color: rgb(132, 155, 196);">
+            <h1>About Me</h1>
+            <div class="horizontal">
+                <img src="{{url_for('static', filename='/resources/me.png')}}">
+                <p style="align-items: center;">I've always been passionate about coding. Something something.</p>
+            </div>
+        </section>
+
+        <section id="skillsAndLearning" class="divider" style="background-image: linear-gradient(rgb(147, 26, 240), rgb(66, 94, 235));">
+            <div>
+                <h1>Skills</h1>
+                <div id="skills" class="skillGrid">
+                </div>
+            </div>
+            <div>
+                <h1>What I'm Learning</h1>
+                <div id="learning" class="skillGrid">
+                </div>
+            </div>
+        </section>
+
+        <section class="footer">
+            <p>neythfds</p>
+            <div class="links" style="flex-direction: row">
+                <h2>Contact Me!</h2>
+                <a href="https://github.com/Nathan-Cherny" class="fa-brands fa-github fa-5x" target="_blank"></a>
+                <a href="https://www.linkedin.com/in/nathancherny" class="fa fa-linkedin fa-5x" target="_blank"></a>
+            </div>
+        </section>
+        
     </body>
 </html>

@@ -3,6 +3,15 @@ body{
     background-color: #206060;
 }
 
+.mainDiv{
+    border: 2px solid black; 
+    width: 75%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    padding: 20px;
+    text-align: center;
+}
+
 p, h1, h2{
     color: white;
 }
@@ -22,7 +31,7 @@ button{
 
 div{
     border-radius: 10px;
-    background-color: #105050;
+    background-color: inherit;
 }
 
 input, select, button{
@@ -44,6 +53,7 @@ p, h1, h2{
     transform: translate(-50%, -50%);
     padding: 20px;
     box-shadow: 2px 2px 2px 2px black;
+    background-color: #105050;
 }
 
 .navigation{
@@ -57,7 +67,7 @@ p, h1, h2{
     background-color: #2a2a2a;
     padding: 0;
     overflow: hidden;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .navigation li{
@@ -67,6 +77,11 @@ p, h1, h2{
 
 button{
     cursor: pointer;
+}
+
+.footer{
+    display: flex;
+    background-color: darkslategrey;
 }
 
 .navigation li a{
@@ -140,3 +155,14 @@ button{
 .popup-message h1{
     font-size: 65px
 }
+
+.footer{
+    background-color: rgb(205, 225, 225);
+    display: flex;
+    color: black;
+}
+
+.footer > p{
+    color: black
+}
+

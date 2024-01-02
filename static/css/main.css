@@ -1,0 +1,74 @@
+.divider{
+    margin: 0px;
+    padding-top: 0px;
+    border-radius: 0px;
+    padding: 100px 100px 250px 50px;
+    border-top: 5px solid white;
+}
+
+.divider h1{
+    padding-top: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.divider div{
+    padding: 20px;
+}
+
+.horizontal{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    column-gap: 5%;
+}
+
+.horizontal img{
+    max-width: 50%;
+    max-height: 50%;
+    border-radius: 100px;
+}
+
+.links{
+    display: flex;
+    justify-content: center;
+    row-gap: 5%;
+    column-gap: 5%;
+}
+
+.links a{
+    border-radius: 100%;
+    background-color: teal;
+    padding: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.skillGrid{
+    display: flex;
+    column-gap: 5%;
+    justify-content: center;
+    padding: 10px;
+}
+
+.skillGrid div{
+    display: flex;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.skillGrid div img{
+    height: 100px;
+    width: 100px;
+}
+
+.skillGrid div p{
+    font-size: 100%
+}
+
+.skillGrid div h1{
+    font-size: 25%
+}

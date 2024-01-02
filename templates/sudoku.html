@@ -2,7 +2,7 @@
 <html>
     <head>
         <script src="{{url_for('static', filename='/js/sudoku.js')}}"></script>
-        <script src="{{url_for('static', filename='/js/popup.js')}}"></script>
+        <script src="{{url_for('static', filename='/js/all.js')}}"></script>
         <link rel="stylesheet" href="{{url_for('static', filename='/css/all.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='/css/sudoku.css')}}">
         <script>
@@ -297,6 +297,12 @@
                 updateHints()
             }
 
+            function changeBoardWidth(){
+                let range = document.getElementById("widthRange")
+                let board = document.getElementsByTagName("table")[0]
+                board.style.width = "" + range.value + "%"
+                console.log("" + range.value + "%")
+            }
 
         </script>
     </head>
@@ -353,6 +359,10 @@
                 <div id="useHint">
                     <p>Use Hint</p>
                     <p>Hints remaining: <span id="hintsLeft"></span></p>
+                </div>
+                <div>
+                    <p>Change board width</p>
+                    <input oninput="changeBoardWidth()" type="range" max="100" min="50" value="100" id="widthRange"/>
                 </div>
             </div>
         </div>
