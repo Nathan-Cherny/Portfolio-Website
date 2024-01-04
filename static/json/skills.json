@@ -13,5 +13,40 @@
         "name": "HTML",
         "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
         "experience": "2 Years"
+    },
+    {
+        "name": "GraphQL",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg",
+        "experience": "1 Year"
+    },
+    {
+        "name": "Flask",
+        "image": "https://cdn.buttercms.com/w8lc0UqsQCnPG0Ax6aiM",
+        "experience": "2 Years"
+    },
+    {
+        "name": "CSS",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
+        "experience": "2 Years"
+    },
+    {
+        "name": "Matplotlib",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Created_with_Matplotlib-logo.svg/2048px-Created_with_Matplotlib-logo.svg.png",
+        "experience": "2 Years"
+    },
+    {
+        "name": "discord.py",
+        "image": "https://avatars.githubusercontent.com/u/36101493?s=200&v=4",
+        "experience": "3 Years"
+    },
+    {
+        "name": "Pygame",
+        "image": "https://user-images.githubusercontent.com/46412508/170405943-e75458ec-6cb4-462e-91ba-43c861a3d6cf.png",
+        "experience": "4 Years"
+    },
+    {
+        "name": "Batch",
+        "image": "https://upload.wikimedia.org/wikipedia/en/7/7c/Batch_file_icon.png",
+        "experience": "6 Years"
     }
 ]
