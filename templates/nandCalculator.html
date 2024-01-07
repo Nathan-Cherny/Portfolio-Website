@@ -5,6 +5,7 @@
         <script src="{{url_for('static', filename='/js/nandCalculator.js')}}"></script>
         <script src="{{url_for('static', filename='/js/all.js')}}"></script>
         <link rel="stylesheet" href="{{url_for('static', filename='/css/all.css')}}">
+        <script src="https://kit.fontawesome.com/6566feb177.js" crossorigin="anonymous"></script>
         <script>
             function binaryToDecimal(binary){
                 return parseInt(binary.join(""), 2)
@@ -119,7 +120,7 @@
             <li onclick="togglePopup('popup-code')" style="float: right"><a ><b>Code</b></a></li>
             <li onclick="togglePopup('popup-help')" style="float: right"><a><b>What is this project?</b></a></li>
         </ul>
-        <div class="mainDiv positionCenter">
+        <div class="mainDiv">
             <h1>Nand Calculator!</h1>
             <div class="calculator">
                 <div class="div32Bit">
@@ -168,6 +169,30 @@
                 <button onclick="togglePopup('popup-code')">Close</button>
             </div>
         </div>
+
+        <section class="footer">
+            <div>
+               <p>Made with <a href="https://github.com/Nathan-Cherny/Music-Player" target="_blank">🎵</a></p> 
+            </div>
+            <div>
+                <h2 style="text-align: left;">Links</h2>
+                <div class="selectionList" style="padding: 0">
+                    <a href="/#home">Home</a>
+                    <a href="/#about_me">About Me</a>
+                    <a href="/#skillsAndLearning">Skills</a>
+                    <a href="/#projects">Projects</a>
+                    <a href="/#education">Education</a>
+                </div>
+             </div>
+            <div>
+                <h2>Contact Info</h2>
+                <div class="links" style="flex-direction: row">
+                    <a href="https://github.com/Nathan-Cherny" class="fa-brands fa-github fa-3x" target="_blank"></a>
+                    <a href="https://www.linkedin.com/in/nathancherny" class="fa fa-linkedin fa-3x" target="_blank"></a>
+                    <a href="mailto:natec3632@gmail.com" class="fa fa-envelope fa-3x" target="_blank"></a>
+                </div>
+            </div>
+        </section>
 
     </body>
 </html>

@@ -1,11 +1,26 @@
-footer, apply to everything
-finish home screen
-    -intro (make background change colors or do something cool)
-    -about me
-        -resume button
-        -about me button
-        -important skills
-    -skills, learning
-    -contact/important links
-    -projects
--change navbar
+extend footer all the way down?
+sudoku
+    settings screen
+ecosystem
+    settings screen
+footer
+    see what else i can do
+popups
+    change whats this project text
+    code make comments different color
+home page
+    home
+        buttons, resume, links
+        change picture
+        add best skills
+    about me
+        picture
+        text
+    skills
+        add more
+        change years to level, Enum idea
+    projects
+        do all of it, just kinda like skills
+    education
+        yeah
+    active navbar is buggy
