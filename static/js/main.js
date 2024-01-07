@@ -24,6 +24,28 @@ function randomColor(){
     return [randint(50, 175), randint(50, 175), randint(50, 175), 0.5]
 }
 
+function numberToExperience(number){
+    let experience = "None"
+    switch(number){
+        case 1:
+            experience = "Just Started"
+            break;
+        case 2:
+            experience = "Learning"
+            break;
+        case 3:
+            experience = "Intermediate"
+            break;
+        case 4:
+            experience = "Proficent"
+            break;
+        case 5:
+            experience = "Expert"
+            break;
+    }
+    return experience
+}
+
 function generateCard(project){ // for projects
     let div = document.createElement("div")
     let infoRow = document.createElement("div")
@@ -61,7 +83,7 @@ function generateCard(project){ // for projects
     return div
 }
 
-function generateDoor(skill){ // for skills and learning. it's called a door because... it's vertical like a door. sure.
+function generateDoor(skill){ // for skills and learning. it's called a door because... it's vertical like a door.
     let div = document.createElement("div")
     let title = document.createElement("h2")
     let img = document.createElement("img")
@@ -69,7 +91,7 @@ function generateDoor(skill){ // for skills and learning. it's called a door bec
 
     title.innerHTML = skill['name']
     img.src = skill['image']
-    desc.innerHTML = skill['experience']
+    desc.innerHTML = numberToExperience(skill['experience'])
 
     div.appendChild(title)
     div.appendChild(img)

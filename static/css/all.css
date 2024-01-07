@@ -7,6 +7,11 @@ html {
     scroll-behavior:smooth;
 }    
 
+hr{
+    margin: 100px;
+    width: 95%
+}
+
 .mainDiv{
     border: 2px solid black; 
     width: 75%; 
@@ -16,10 +21,6 @@ html {
     margin-bottom: 2.5%;
     padding: 20px;
     text-align: center;
-}
-
-p, h1, h2{
-    color: white;
 }
 
 p{
@@ -251,5 +252,17 @@ button{
     }
     100%{
         background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse{
+    0%{
+        font-size: initial;
+    }
+    50%{
+        font-size: 150%;
+    }
+    100%{
+        font-size: initial;
     }
 }

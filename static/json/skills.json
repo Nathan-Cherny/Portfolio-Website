@@ -2,51 +2,56 @@
     {
         "name": "Python",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
-        "experience": "5 Years"
+        "experience": 5
     },
     {
         "name": "JavaScript",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
-        "experience": "2 Years"
+        "experience": 4
     },
     {
         "name": "HTML",
         "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
-        "experience": "2 Years"
+        "experience": 4
     },
     {
         "name": "GraphQL",
         "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg",
-        "experience": "1 Year"
+        "experience": 4
     },
     {
         "name": "Flask",
         "image": "https://cdn.buttercms.com/w8lc0UqsQCnPG0Ax6aiM",
-        "experience": "2 Years"
+        "experience": 4
     },
     {
         "name": "CSS",
         "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
-        "experience": "2 Years"
+        "experience": 4
     },
     {
         "name": "Matplotlib",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Created_with_Matplotlib-logo.svg/2048px-Created_with_Matplotlib-logo.svg.png",
-        "experience": "2 Years"
+        "experience": 3
     },
     {
         "name": "discord.py",
         "image": "https://avatars.githubusercontent.com/u/36101493?s=200&v=4",
-        "experience": "3 Years"
+        "experience": 3
     },
     {
         "name": "Pygame",
         "image": "https://user-images.githubusercontent.com/46412508/170405943-e75458ec-6cb4-462e-91ba-43c861a3d6cf.png",
-        "experience": "4 Years"
+        "experience": 5
     },
     {
         "name": "Batch",
         "image": "https://upload.wikimedia.org/wikipedia/en/7/7c/Batch_file_icon.png",
-        "experience": "6 Years"
+        "experience": 3
+    },
+    {
+        "name": "Java",
+        "image": "https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png",
+        "experience": 3
     }
 ]

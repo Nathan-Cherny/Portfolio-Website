@@ -20,34 +20,64 @@
             <li><a href="sudoku">Sudoku</a></li>
         </ul>
         
-        <section id="home" class="divider horizontal gradientBackground" style="border: none">
-            <div style="align-self: center;">
-                <h1 style="text-align: left;">
-                    Hey, I'm <span style="color: #f5b964">Nathan Cherny</span>!
-                </h1>
-                <p>Computer Science major in Sophomore year at Temple University.</p>
-                <div class="horizontal" style="padding: 0; justify-content: left;">
-                    <a href="/#about_me" class="importantButton">About Me <i class="fa-solid fa-arrow-down"></i></a>
-                    <a target="_blank" href="{{url_for('static', filename='/resources/resume.pdf')}}" class="importantButton">Resume <i class="fa-solid fa-file"></i></a>
+        <section id="home" class="divider gradientBackground" style="border: none">
+
+            <div class="horizontal">
+                <div style="align-self: center;">
+                    <h1 style="text-align: left;">
+                        Hey, I'm <span style="color: #f5b964">Nathan Cherny</span>!
+                    </h1>
+                    <p>Computer Science major in Sophomore year at Temple University.</p>
+                    <div class="horizontal" style="padding: 0; justify-content: left;">
+                        <a href="/#about_me" class="importantButton">About Me <i class="fa-solid fa-arrow-down"></i></a>
+                        <a target="_blank" href="{{url_for('static', filename='/resources/resume.pdf')}}" class="importantButton">Resume <i class="fa-solid fa-file"></i></a>
+                    </div>
+                </div>
+                <img src="{{url_for('static', filename='/resources/me.png')}}">
+                <div class="links" style="flex-direction: column;">
+                    <a href="https://github.com/Nathan-Cherny" class="fa-brands fa-github fa-5x" target="_blank"></a>
+                    <a href="https://www.linkedin.com/in/nathancherny" class="fa fa-linkedin fa-5x" target="_blank"></a>
+                    <a href="mailto:natec3632@gmail.com" class="fa fa-envelope fa-5x" target="_blank"></a>
                 </div>
             </div>
-            <img src="{{url_for('static', filename='/resources/me.png')}}">
-            <div class="links" style="flex-direction: column;">
-                <a href="https://github.com/Nathan-Cherny" class="fa-brands fa-github fa-5x" target="_blank"></a>
-                <a href="https://www.linkedin.com/in/nathancherny" class="fa fa-linkedin fa-5x" target="_blank"></a>
-                <a href="mailto:natec3632@gmail.com" class="fa fa-envelope fa-5x" target="_blank"></a>
+            <hr>
+            <h1>Hire me for...</h1>
+            <div class="centerItems" style="flex-direction: column; row-gap: 50px;">
+                <div class="horizontal" style="width: 100%">
+                    <div class="door" style="flex-direction: column;">
+                        <i class="fa-brands fa-python fa-3x"></i>
+                        <h2>Python</h2>
+                    </div>
+                    <div class="door" style="flex-direction: column;">
+                        <i class="fa-solid fa-code fa-3x"></i>
+                        <h2>Full Stack<br>Development</h2>
+                    </div>
+                    <div class="door" style="flex-direction: column;">
+                        <i class="fa-solid fa-database fa-3x"></i>
+                        <h2>Data<br>Management</h2>
+                    </div>    
+                </div>
+                <a href="#skillsAndLearning" style="background-color: rgb(47, 138, 111, 0.5); padding: 25px; width: 35%; animation: pulse 2s ease infinite;" class="door">And More! <i class="fa-solid fa-arrow-down"></i></a>
             </div>
+
         </section>
 
-        <section id="about_me" class="divider" style="background-color: rgb(114, 163, 126);">
+        <section id="about_me" class="divider" style="background-color: rgb(14, 63, 26);">
             <h1>About Me</h1>
             <div class="horizontal">
                 <img src="{{url_for('static', filename='/resources/me.png')}}">
-                <p style="align-items: center;">I've always been passionate about coding. Something something.</p>
+                <p>
+                    Hi! I'm Nathan, and that's me on the left coding when I was around 12 or so. When I say that I've been coding for as long as I can remember, 
+                    I mean it. It began when I was single-digits years old and got to, well, this. Coding has always been a passion of mine, and I want to use 
+                    that passion to make an impact on the world around me.
+                    <br></br>
+                    I'm almost 100% self-taught, watching tutorials and making projects because it was fun. That continues to this day, and won't
+                    ever end.
+                </p>
             </div>
         </section>
 
-        <section id="skillsAndLearning" class="divider" style="background-image: linear-gradient(rgb(179, 82, 82), rgb(179, 179, 82));">
+        <section id="skillsAndLearning" class="divider" style="background-image: linear-gradient(rgb(100, 82, 41), rgb(100, 41, 41));">
             <div>
                 <h1>Skills</h1>
                 <div id="skills" class="skillGrid">
@@ -60,7 +90,7 @@
             </div>
         </section>
 
-        <section id="myProjects" class="divider" style="background-color: rgb(69 69 69);">
+        <section id="myProjects" class="divider" style="background-color: rgb(50, 85, 95);">
             <h1>Projects</h1>
             <div id="projects" class="skillGrid">
             </div>

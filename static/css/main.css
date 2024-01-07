@@ -20,14 +20,22 @@ h2{
 }
 
 .divider div{
-    padding: 20px;
+    padding: 20px 20px 5px 20px;
 }
 
 .horizontal{
+    align-items: center;
     display: flex;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     column-gap: 5%;
+}
+
+.horizontal .door{
+    min-width: 50px;
+    min-height: 50px;
+    width: 150px;
+    height: 150px;
 }
 
 .horizontal img{
@@ -38,7 +46,7 @@ h2{
 
 .skillGrid{
     display: flex;
-    column-gap: 5%;
+    column-gap: 2.5%;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
@@ -54,46 +62,53 @@ h2{
     transition: all 0.1s ease-in-out;
 }
 
-.skillGrid .door{
-    max-width: 50%;
+.door{
+    justify-content: center;
+    align-items: center;
+    color: white;
+    display: flex;
+    max-width: 75%;
+    min-width: 20%;
     background-color: rgba(0, 0, 0, 0.5);
     border: 5px solid black;
+
+    flex: 1 1 0;
 }
 
-.skillGrid .door:hover{
+.door:hover{
     background-color: rgba(0, 0, 0, 0.25);
 }
 
-.skillGrid .door img{
+.door img{
     height: 100px;
     width: 100px;
 }
 
-.skillGrid .door p{
+.door p{
     font-size: 100%;
 }
 
-.skillGrid .door h1{
+.door h1{
     font-size: 25%
 }
 
-.skillGrid .card{
+.card{
     max-width: 45%;
     max-height: 33%;
     border: 2px solid white
 }
 
-.skillGrid .card img{
+.card img{
     max-width: 75%;
     max-height: 100%
 }
 
-.skillGrid .card p{
+.card p{
     font-size: 15px;
     margin: 5px;
 }
 
-.skillGrid .card div{
+.card div{
     display: flex;
     flex-direction: row;
     column-gap: 5%;
@@ -101,7 +116,7 @@ h2{
     width: 95%
 }
 
-.skillGrid .card .titleRow{
+.card .titleRow{
     display: flex;
     justify-content: center;
     color: white;
