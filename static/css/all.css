@@ -12,8 +12,8 @@ html {
     width: 75%; 
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
     padding: 20px;
     text-align: center;
 }
@@ -75,11 +75,6 @@ p, h1, h2{
 
 button{
     cursor: pointer;
-}
-
-.footer{
-    display: flex;
-    background-color: darkslategrey;
 }
 
 .navigation li a{
@@ -155,9 +150,9 @@ button{
 }
 
 .footer{
+    display: flex;
     background-color: rgb(25, 35, 45);
     display: flex;
-    color: black;
     justify-content: center;
     align-items: center;
     column-gap: 10%;
@@ -166,10 +161,12 @@ button{
 
 .footer div{
     padding: 20px;
+    margin: auto
 }
 
 .footer div h2{
     font-size: 35px;
+    text-align: center;
 }
 
 .footer div a{
@@ -177,7 +174,6 @@ button{
     text-decoration: none;
     color: white;
 }
-
 
 .links{
     display: flex;

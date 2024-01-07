@@ -101,6 +101,10 @@ td:hover{
     margin-top: 25px;
 }
 
+#settings div{
+    margin: 25px;
+}
+
 a{
     color: blue;
     text-decoration: underline;

@@ -8,12 +8,15 @@ h2{
     border-radius: 0px;
     padding: 100px 100px 250px 50px;
     border-top: 5px solid white;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .divider h1{
     padding-top: 0px;
     margin: 0px;
     text-align: center;
+    margin-bottom: 25px;
 }
 
 .divider div{
@@ -45,30 +48,64 @@ h2{
 .skillGrid div{
     display: flex;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 5px solid black;
     margin-bottom: 15px;
     transition: all 0.1s ease-in-out;
 }
 
-.skillGrid div:hover{
+.skillGrid .door{
+    max-width: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 5px solid black;
+}
+
+.skillGrid .door:hover{
     background-color: rgba(0, 0, 0, 0.25);
 }
 
-.skillGrid div img{
+.skillGrid .door img{
     height: 100px;
     width: 100px;
 }
 
-.skillGrid div p{
-    font-size: 100%
+.skillGrid .door p{
+    font-size: 100%;
 }
 
-.skillGrid div h1{
+.skillGrid .door h1{
     font-size: 25%
+}
+
+.skillGrid .card{
+    max-width: 45%;
+    max-height: 33%;
+    border: 2px solid white
+}
+
+.skillGrid .card img{
+    max-width: 75%;
+    max-height: 100%
+}
+
+.skillGrid .card p{
+    font-size: 15px;
+    margin: 5px;
+}
+
+.skillGrid .card div{
+    display: flex;
+    flex-direction: row;
+    column-gap: 5%;
+    padding: 10px;
+    width: 95%
+}
+
+.skillGrid .card .titleRow{
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-wrap: nowrap;
 }
 
 .centerItems{
@@ -78,15 +115,22 @@ h2{
 }
 
 .importantButton{
-    -webkit-box-shadow:0px 0px 22px 12px rgba(224, 128, 67,0.64);
-    -moz-box-shadow: 0px 0px 22px 12px rgba(224, 128, 6,0.64);
-    box-shadow: 0px 0px 22px 12px rgba(224, 128, 6,0.64);
-    background-color: rgb(224, 128, 6);
-    padding: 10px;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    color: #ffffff;
+    text-align: center;
+    transition: 0.3s all ease;
+    border-radius: 5px;
     border: 1px solid black;
-    transition: all 0.3s ease-in-out
+
+    background-color: #2f8a6f;
 }
 
 .importantButton:hover{
     font-size: 25px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit
 }

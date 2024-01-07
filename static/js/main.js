@@ -1,4 +1,4 @@
-async function getJsonData(json){
+async function getJsonData(json){ // json can be either skills, learning, or projects
     return fetch('static/json/' + json + '.json')
         .then(response => response.json())
         .then(data => {
@@ -6,33 +6,85 @@ async function getJsonData(json){
         });
 }
 
-async function showJsonData(json){ // json can be either skills or projects
+async function showJsonData(json, card=false){ // card is true for projects 
     let data = await getJsonData(json)
     let grid = document.getElementById(json)
 
-    for(skill of data){
-        let div = document.createElement("div")
-        
-        let title = document.createElement("h2")
-        let img = document.createElement("img")
-        let experience = document.createElement("p")
-
-        title.innerHTML = skill['name']
-        img.src = skill['image']
-        experience.innerHTML = skill['experience']
-
-        div.appendChild(title)
-        div.appendChild(img)
-        div.appendChild(experience)
-
+    for(item of data){
+        div = card ? generateCard(item) : generateDoor(item)
         grid.appendChild(div)
     }
+}
+
+function randint(min, max){
+    return Math.floor(Math.random() * (max - min + 1) + min) 
+}
+
+function randomColor(){
+    return [randint(50, 175), randint(50, 175), randint(50, 175), 0.5]
+}
+
+function generateCard(project){ // for projects
+    let div = document.createElement("div")
+    let infoRow = document.createElement("div")
+    let titleRow = document.createElement("div")
+
+    let title = document.createElement("h2")
+    let github = document.createElement("a")
+    let img = document.createElement("img")
+    let desc = document.createElement("p")
+
+    title.innerHTML = project['name']
+    img.src = project['image']
+    desc.innerHTML = project['desc']
+    github.href = project['github']
+    github.target = "_blank"
+
+    github.classList.add("fa-brands")
+    github.classList.add("fa-github")
+    github.classList.add("fa-3x")
+
+    infoRow.appendChild(img)
+    infoRow.appendChild(desc)
+
+    titleRow.appendChild(title)
+    titleRow.appendChild(github)
+    titleRow.classList.add("titleRow")
+
+    div.appendChild(titleRow)
+    div.appendChild(infoRow)
+
+    div.style.backgroundColor = "rgb(" + randomColor() + ")"
+
+    div.classList.add("card")
+
+    return div
+}
+
+function generateDoor(skill){ // for skills and learning. it's called a door because... it's vertical like a door. sure.
+    let div = document.createElement("div")
+    let title = document.createElement("h2")
+    let img = document.createElement("img")
+    let desc = document.createElement("p")
+
+    title.innerHTML = skill['name']
+    img.src = skill['image']
+    desc.innerHTML = skill['experience']
+
+    div.appendChild(title)
+    div.appendChild(img)
+    div.appendChild(desc)
+
+    div.classList.add("door")
+
+    return div
 }
 
 function whenLoaded(){
     getSectionsBoundaries()
     showJsonData("skills")
     showJsonData("learning")
+    showJsonData("projects", card=true)
     document.onscroll = checkSectionActivity
 }
 
@@ -67,10 +119,7 @@ function checkSectionActivity(){
     let i = 0
     while(i < boundaries.length){
         let sectionData = boundaries[i]    
-        let section = sectionData["section"]
         let li = lis[i]
-
-        let liHrefToId = li.children[0].hash.slice(1)
 
         if (sectionData["top"] <= currentScroll && currentScroll <= sectionData["bottom"] && activeLi != li){
             changeActivity(activeLi, li)

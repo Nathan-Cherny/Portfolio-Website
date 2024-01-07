@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Symptom Tracker",
+        "desc": "A project I created with my friends for a hackathon. Uses user input to map outbreaks across the Temple campus. I worked on the front-end.",
+        "image": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/599/504/datas/original.png",
+        "github": "https://github.com/Nathan-Cherny/Symptom-Tracker"
+    },
+    {
+        "name": "Music Player",
+        "desc": "A personal music player, similar to spotify, but using videos from YouTube. The primary way I listen to music, it can clip songs, speed them up or slow them down, and graphs songs by how much I've played them.",
+        "image": "static/resources/music.png",
+        "github": "https://github.com/Nathan-Cherny/Music-Player"
+    },
+    {
+        "name": "Bairs Bot",
+        "desc": "A bot for a weekly Super Smash Brothers Tournament in the Philadelphia area. Uses graphql and tweepy to scrape the results of a tournament and post notable results. ",
+        "image": "static/resources/bairs.png",
+        "github": "https://github.com/Nathan-Cherny/Music-Player"
+    },
+    {
+        "name": "Portfolio Projects",
+        "desc": "If you were wondering what the tabs right of the divider in the navbar was, they're projects integrated in this website! They showcase different skills I have and are pretty fun to mess around with.<br></br>You can go to their respective pages and click the 'What is this project?' tab for information!",
+        "image": "static/resources/projects.png",
+        "github": "https://github.com/Nathan-Cherny/Portfolio-Website"
+    }
+]
