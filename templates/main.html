@@ -17,6 +17,8 @@
             <li><a href="ecosystem">Ecosystem</a></li>
             <li><a href="nandCalculator">nandCalculator</a></li>
             <li><a href="sudoku">Sudoku</a></li>
+
+            <li onclick="togglePopup('popup-code')" style="float: right"><a ><b>Code</b></a></li>
         </ul>
         
         <section id="home" class="divider gradientBackground" style="border: none">
@@ -24,7 +26,7 @@
             <div class="horizontal">
                 <div style="align-self: center;">
                     <h1 style="text-align: left;">
-                        Hey, I'm <span style="color: #f5b964">Nathan Cherny</span>!
+                        Hello, I'm <span style="color: #f5b964">Nathan Cherny</span>!
                     </h1>
                     <p>Computer Science major in Sophomore year at Temple University.</p>
                     <div class="horizontal" style="padding: 0; justify-content: left;">
@@ -56,7 +58,7 @@
                         <h2>Data<br>Management</h2>
                     </div>    
                 </div>
-                <a href="#skillsAndLearning" style="background-color: rgb(47, 138, 111, 0.5); padding: 25px; width: 35%; animation: pulse 2s ease infinite;" class="door">And More! <i class="fa-solid fa-arrow-down"></i></a>
+                <a href="#skillsAndLearning" style="background-color: rgb(47, 138, 111, 0.5); padding: 25px; max-height: 75px; width: 35%; animation: pulse 2s ease infinite;" class="door">And More! <i class="fa-solid fa-arrow-down"></i></a>
             </div>
 
         </section>
@@ -94,6 +96,21 @@
             <div id="projects" class="skillGrid">
             </div>
         </section>
+
+        <div class="popup" id="popup-code">
+            <div class="popup-message" style="height: 75%;">
+                <div class="popup-bar">
+                    <button name="js" onclick="changeCode(this)"><i class="fa-brands fa-js"></i></button>
+                    <button name="css" onclick="changeCode(this)"><i class="fa-brands fa-css3-alt"></i></button>
+                    <button name="html" onclick="changeCode(this)"><i class="fa-brands fa-html5"></i></button>
+                    <button style="background-color: red" onclick="togglePopup('popup-code')">Close</button>
+                </div>
+                <h1 id="code-name">Code</h1>
+                <p class="codeDisplay" id="js"></p>
+                <p class="codeDisplay" id="css"></p>
+                <p class="codeDisplay" id="html"></p>
+            </div>
+        </div>
 
         <section class="footer">
             <div>

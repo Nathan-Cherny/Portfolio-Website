@@ -176,6 +176,10 @@ button{
     padding: 10px;
 }
 
+.codeHr{
+    margin: 25px;
+}
+
 .footer{
     display: flex;
     background-color: rgb(25, 35, 45);
@@ -283,12 +287,12 @@ button{
 
 @keyframes pulse{
     0%{
-        font-size: initial;
+       border-color: white
     }
     50%{
-        font-size: 150%;
+        border-color: black;
     }
     100%{
-        font-size: initial;
+        border-color: white;
     }
 }

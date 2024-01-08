@@ -1,6 +1,6 @@
 // code for the help popups
 
-function togglePopup(popupId, file="js"){
+function togglePopup(popupId, file="js"){ // default is js, can change this if i want
     
     let popup = document.getElementById(popupId)
     
@@ -17,7 +17,6 @@ function togglePopup(popupId, file="js"){
 }
 
 function changeCode(button){
-    console.log(button.name)
     getCodeSrc(button.name)
 }
 
@@ -46,7 +45,13 @@ function getCodeSrc(file){
             break;
     }
 
-    let path = window.location.origin + loc + window.location.pathname + fileType
+    let project = window.location.pathname
+
+    if(project == "/" && file != "html"){ // css and js are /main while the html is just /, this if statement does this
+        project = "/main"
+    }
+
+    let path = window.location.origin + loc + project + fileType
 
     let activeButton = getActiveButton()
     if(activeButton){ // user has clicked on one, therefore there's code, therefore we need to remove it
@@ -59,7 +64,7 @@ function getCodeSrc(file){
     if(file){
         document.getElementsByName(file)[0].classList.add("active")
         document.getElementById(file).style.display = "block"
-        document.getElementById("code-name").innerHTML = "Code: " + file.toUpperCase()
+        document.getElementById("code-name").innerHTML = "Code " + "<hr class='codeHr' ></hr>" + file.toUpperCase()
     }
 
     fetch(path)
