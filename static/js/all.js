@@ -1,4 +1,4 @@
-// code for the help popups
+ // code for the help popups
 
 function togglePopup(popupId, file="js"){ // default is js, can change this if i want
     

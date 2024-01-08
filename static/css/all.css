@@ -1,6 +1,7 @@
 body{
     margin: 0;
     background-color: #206060;
+    border: 2px solid white;
 }
 
 html {
@@ -8,7 +9,7 @@ html {
 }    
 
 hr{
-    margin: 100px;
+    margin: 25px;
     width: 95%;
     margin-right: auto;
     margin-left: auto;
@@ -126,6 +127,7 @@ button{
     z-index: 101;
     width: 75%;
     overflow-y: scroll;
+    max-height: 75%;
 }
 
 .popup-open{
@@ -221,6 +223,7 @@ button{
     color: black;
     transition: all 0.3s ease-in-out;
     border: 3px solid black;
+    text-align: center;
 }
 
 .links a:hover{
@@ -231,9 +234,10 @@ button{
 .selectionList{
     display: flex;
     flex-direction: column;
-    align-items: left;
     justify-content: center;
     text-align: left;
+    flex: 1 1 0;
+    height: 50%
 }
 
 .selectionList i{
@@ -252,6 +256,22 @@ button{
 
 .selectionList a:hover{
     color: rgb(177, 116, 240)
+}
+
+.importantButton{
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    color: #ffffff;
+    border: 2px solid white;
+    text-align: center;
+    transition: 0.3s all ease;
+    border-radius: 5px;
+
+    background-color: #2f8a6f;
+}
+
+.importantButton:hover{
+    font-size: 25px;
 }
 
 .gradientBackground{
@@ -286,13 +306,5 @@ button{
 }
 
 @keyframes pulse{
-    0%{
-       border-color: white
-    }
-    50%{
-        border-color: black;
-    }
-    100%{
-        border-color: white;
-    }
+
 }

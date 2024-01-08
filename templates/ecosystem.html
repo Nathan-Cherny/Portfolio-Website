@@ -32,26 +32,32 @@
         <div id="inputDiv" class="mainDiv">
             <h1>Ecosystem Simulator!</h1>
             <div class="inputs">
-                <div>
+                <div class="primarySettings">
+                    <a href="#populationHelp" onclick="togglePopup('popup-help')" class="question fa-solid fa-question"></a>
+                    <h2>Population Settings</h2>
                     <input name="fish" placeholder="Fish Population">
                     <input name="sharks" placeholder="Shark Population">
                     <input name="plants" placeholder="Plant Population">
-                </div>
-                <div>
-                    <input name="endGeneration" placeholder="Generation Cap">
-                </div>
-                <div>
-                    <input name="plantCalories-Low" placeholder="Plant Calorie Range (Low)">
-                    <input name="plantCalories-High" placeholder="Plant Calorie Range (High)">
-                    <input name="plantGrowth" placeholder="Plant Growth">
-                </div>
-                <div>
-                    <input name="speedRange-Low" placeholder="Speed Range (Low)">
-                    <input name="speedRange-High" placeholder="Speed Range (High)">
-                    <input name="metabolismRange-Low" placeholder="Metabolism Range (Low)">
-                    <input name="metabolismRange-High" placeholder="Metabolism Range (High)">
-                    <input name="matingDesireRange-Low" placeholder="Mating Desire Range (Low)">
-                    <input name="matingDesireRange-High" placeholder="Mating Desire Range (High)">
+                    <input name="endGeneration" placeholder="Generation Cap"> 
+                </div>                    
+                <div class="secondarySettings">
+                    <div>
+                        <a href="#plantHelp" onclick="togglePopup('popup-help')" class="question fa-solid fa-question"></a>
+                        <h2>Plant Settings</h2>
+                        <input name="plantCalories-Low" placeholder="Plant Calorie Range (Low)">
+                        <input name="plantCalories-High" placeholder="Plant Calorie Range (High)">
+                        <input name="plantGrowth" placeholder="Plant Growth">
+                    </div>
+                    <div>
+                        <a href="#statsHelp" onclick="togglePopup('popup-help')" class="question fa-solid fa-question"></a>
+                        <h2>Animal Stats Settings</h2>
+                        <input name="speedRange-Low" placeholder="Speed Range (Low)">
+                        <input name="speedRange-High" placeholder="Speed Range (High)">
+                        <input name="metabolismRange-Low" placeholder="Metabolism Range (Low)">
+                        <input name="metabolismRange-High" placeholder="Metabolism Range (High)">
+                        <input name="matingDesireRange-Low" placeholder="Mating Desire Range (Low)">
+                        <input name="matingDesireRange-High" placeholder="Mating Desire Range (High)">
+                    </div>                    
                 </div>    
             </div>
             <button onclick="beginSimulation()" class="center">Run</button>
@@ -61,14 +67,33 @@
             <div class="popup-message">
                 <h1>Ecosystem Simulator</h1>
                 <p>This project simulates a natural ecosystem! There are Fish, Shark, and Plants. Fish eat the Plants, Sharks eat the Fish.</p>
-                <p>The core goal of this project is to simulate natural selection, well, naturally. Each animal has the following traits:</p>
-                
-                <p style="font-size: 15px;">Speed - If a Shark is trying to eat a Fish and its Speed is higher than the Fish's, it'll eat it. If not, the Fish will survive.</p>
-                <p style="font-size: 15px;">Metabolism - How quickly it gets hungry.</p>
-                <p style="font-size: 15px;">Mating Desire - How quickly it'll start looking for mates and reproduce.</p>
-                
+                <p>The core goal of this project is to simulate natural selection, well, naturally. Each animal has many different traits which help further their survival. <a>Here's the list of all the traits and what they do</a>:</p>
+            
                 <p>Running the simulation generates graphs that show the average value of each trait. You should see that as, for example, Sharks start eating all the fish, toward the end, the average Speed trait for the Fish is higher. Natural selection!</p>
                 <p>This project challenged me in organizational ways. Having multiple instances of classes interact with each other, while recording everything and graphing it all required a lot of clear organization.</p>
+                
+                <hr>
+
+                <section class="sectionHelp" id="populationHelp">
+                    <h2>Population Help</h2>
+                    <p>These settings are for controlling the population, as well as determining when to stop the simulation.</p>
+                </section>
+                <hr>
+                <section class="sectionHelp" id="plantHelp">
+                    <h2>Plant Help</h2>
+                    <p>These settings determine some variables of the Plants.</p>
+                    <p>Plant Calories is how much hunger eating a plant replenishes to a Fish. The higher the number here, the less the Fish will be hungry overall.</p>
+                    <p>Plant Growth is how quickly the Plants themselves reproduce and spread. A low Plant Growth will mean Plants will quickly run out.</p>
+                </section>
+                <hr>
+                <section class="sectionHelp"  id="statsHelp">
+                    <h2>Animal Traits Help</h2>
+                    <p>Speed - If a Shark is trying to eat a Fish and its Speed is higher than the Fish's, it'll eat it. If not, the Fish will survive.</p>
+                    <p>Metabolism - How quickly it gets hungry.</p>
+                    <p>Mating Desire - How quickly it'll start looking for mates and reproduce.</p> 
+                </section>
+
+                
                 <button onclick="togglePopup('popup-help')">Close</button>
             </div>
         </div>
@@ -105,7 +130,7 @@
                 <h2>Contact Info</h2>
                 <div class="links" style="flex-direction: row">
                     <a href="https://github.com/Nathan-Cherny" class="fa-brands fa-github fa-3x" target="_blank"></a>
-                    <a href="https://www.linkedin.com/in/nathancherny" class="fa fa-linkedin fa-3x" target="_blank"></a>
+                    <a href="https://www.linkedin.com/in/nathancherny" class="fa-brands fa-linkedin fa-3x" target="_blank"></a>
                     <a href="mailto:natec3632@gmail.com" class="fa fa-envelope fa-3x" target="_blank"></a>
                 </div>
             </div>

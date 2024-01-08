@@ -123,26 +123,18 @@ h2{
     text-wrap: nowrap;
 }
 
+.card .infoRow{
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-wrap: wrap;
+    flex: 1 1 0
+}
+
 .centerItems{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.importantButton{
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    color: #ffffff;
-    text-align: center;
-    transition: 0.3s all ease;
-    border-radius: 5px;
-    border: 1px solid black;
-
-    background-color: #2f8a6f;
-}
-
-.importantButton:hover{
-    font-size: 25px;
 }
 
 a{
