@@ -6,314 +6,13 @@
         <link rel="stylesheet" href="{{url_for('static', filename='/css/all.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='/css/sudoku.css')}}">
         <script src="https://kit.fontawesome.com/6566feb177.js" crossorigin="anonymous"></script>
-        <script>
-            function beginGame(){
-                let difficulty = Number(document.getElementById("difficulty").value)
-                board = new Board(difficulty = difficulty)
-                currentNumberSelected = null // actual td DOM object
-                hints = document.getElementById("hints").value
-                hintOn = false
-                wrongGuesses = 0
-                completeUnits = board.difficulty
-                totalUnits = board.board.length * board.board[0].length
-                allowedFails = document.getElementById("fails").value
-                if(allowedFails > 10){
-                    allowedFails = 10
-                }
-                start()
-            }
-
-            function isComplete(td){ // if this td already has the correct answer
-                if(td.innerHTML){
-                    return(td.childNodes[0].nodeName == "#text")
-                }
-                return false
-            }
-
-            function unitOnClick(td, row, col){
-                if(isComplete(td) || (!currentNumberSelected && !hintOn)){return}
-
-                let answer = board.board[row][col]
-                let guess = 0
-
-                if(currentNumberSelected){
-                    guess = Number(currentNumberSelected.innerHTML)
-                }
-
-                if(guess == answer || hintOn){
-                    td.innerHTML = answer
-                    board.maskedBoard[row][col] = answer
-                    completeUnits++
-                    if(hintOn){
-                        hintOn = false
-                        document.getElementById("useHint").style.background = "initial"
-                        document.getElementById("useHint").getElementsByClassName("helper")[0].remove()
-                    }
-                    else{
-                        highlight(td)
-                    }
-                    updateProgressBar()
-                }
-                else{
-                    wrongGuesses++
-                    updateStrikes()
-                }
-            }
-
-            function placeOption(td){
-                if(isComplete(td)){return} // we dont want to put options on an already completed td
-
-                // if the option is already there click on it with the same option to remove it
-                let currentOptions = td.getElementsByClassName("option") 
-                for(let option of [].slice.call(currentOptions)){
-                    if(option.innerHTML == currentNumberSelected.innerHTML){
-                        option.remove()
-                        return
-                    }
-                }
-                
-                let number = currentNumberSelected.innerHTML
-                let option = document.createElement("p")
-                let classList = option.classList
-                classList.add("option")
-                switch(number){
-                    case '1':
-                        classList.add("topLeft")
-                        break;
-                    case '2':
-                        classList.add("topCenter")
-                        break;
-                    case '3':
-                        classList.add("topRight")
-                        break;
-                    case '4':
-                        classList.add("leftCenter")
-                        break;
-                    case '5':
-                        classList.add("fullCenter")
-                        break;
-                    case '6':
-                        classList.add("rightCenter")
-                        break;
-                    case '7':
-                        classList.add("bottomLeft")
-                        break;
-                    case '8':
-                        classList.add("bottomCenter")
-                        break;
-                    case '9':
-                        classList.add("bottomRight")
-                        break;    
-                }
-
-                option.innerHTML = number
-                td.appendChild(option)
-            }
-
-            function getUnitLocations(){
-                return board.getAllUnitLocations(board.maskedBoard)
-            }
-
-            function turnTableInto2DArray(){
-                let table = document.getElementsByTagName("table")[0]
-                let table2dArray = []
-                for(let tr of [].slice.call(table.rows).splice(0, table.rows.length - 1)){
-                    let row = []
-                    for(let td of tr.children){
-                        row.push(td)
-                    }
-                    table2dArray.push(row)
-                }
-                return table2dArray
-            }
-
-            function highlight(td){
-                td.classList.add("highlight")
-            }
-
-            function resetHighlightedTds(){
-                let highlighted = document.getElementsByClassName("highlight")
-                for(let td of [].slice.call(highlighted)){
-                    td.classList.remove("highlight")
-                }
-            }
-
-            function highlightAllUnitsWithNumber(num){
-                resetHighlightedTds()
-                let locations = getUnitLocations()[num]
-                console.log(locations)
-                let tableBoard = turnTableInto2DArray()
-                let toHighlight = []
-
-                for(let loc of locations){
-                    let row = loc[0]
-                    let col = loc[1]
-
-                    toHighlight.push(tableBoard[row][col])
-                }
-
-                for(let td of toHighlight){
-                    highlight(td)
-                }
-            }
-
-            function showAnswerKey(){
-                let table = document.getElementsByTagName("table")[0]
-                let tableArray = turnTableInto2DArray()
-                for(let row = 0; row < board.board.length; row++){
-                    for(let col = 0; col < board.board[0].length; col++){
-                        tableArray[row][col].innerHTML = board.board[row][col]
-                    }
-                }
-                resetHighlightedTds()
-                board.maskedBoard = board.board
-                highlightAllUnitsWithNumber(currentNumberSelected.innerHTML)
-            }
-
-            function gameOver(){
-                let gameOverDisplay = document.createElement("h1")
-                let info = document.createElement("p")
-                gameOverDisplay.innerHTML = "Game Over!"
-                info.innerHTML = "You ran out of guesses! Here's the correct board for this game. \
-                <a style='color: lightblue' onclick='location.reload()'>Try again?</a>"
-
-                let div = document.createElement("div")
-                div.appendChild(gameOverDisplay)
-                div.appendChild(info)
-
-                showAnswerKey()
-
-                document.getElementById("boardContainer").appendChild(div)
-                removeDisplayData()
-                
-            }
-
-            function removeDisplayData(){
-                displayData = document.getElementsByClassName("displayData")[1]
-                displayData.style.display = 'none'
-            }
-
-            function updateProgressBar(){
-                progressBar = document.getElementById("progressBar")
-                progressBar.max = totalUnits
-                progressBar.value = completeUnits
-
-                progressBarData = document.getElementById("progressBarData")
-                progressBarData.innerHTML = completeUnits + "/" + totalUnits
-            }
-
-            function updateStrikes(){
-                let remainingGuesses = allowedFails - wrongGuesses
-
-                let guessDisplay = ""
-                
-                if(remainingGuesses <= 0){
-                    gameOver()
-                    guessDisplay = "None"
-                }
-                else{
-                    for(let i = 0; i < remainingGuesses; i++){
-                        guessDisplay += "X "
-                    }
-                }
-                
-                document.getElementById("strikes").innerHTML = guessDisplay
-            }
-
-            function updateHints(){
-                document.getElementById("hintsLeft").innerHTML = hints
-                document.getElementById("useHint").onclick = function(){
-                    if(hints > 0 && !hintOn){
-                        hintOn = true
-                        hints--
-                        document.getElementById("hintsLeft").innerHTML = hints
-                        document.getElementById("useHint").style.background = "#50AA88"
-
-                        let helper = document.createElement("p")
-                        helper.innerHTML = "Hint is activated!<br>Click on any empty unit to get the right answer."
-                        helper.classList.add("helper")
-
-                        document.getElementById("useHint").appendChild(helper)
-                    }
-                }
-            }
-
-            function numberSelectOnClick(ns){
-                if(currentNumberSelected){
-                    currentNumberSelected.classList.remove("numberSelected")
-                }
-                currentNumberSelected = ns
-                currentNumberSelected.classList.add("numberSelected")
-                highlightAllUnitsWithNumber(Number(ns.innerHTML))
-            }
-
-            function createBoard(){
-                let boardContainer = document.getElementById("boardContainer")
-
-                let table = document.createElement("table")
-
-                table.addEventListener("contextmenu", (event) => {
-                    event.preventDefault()
-                })
-
-                console.log(board)
-
-                for(let row = 0; row < board.board.length; row++){
-                    let tr = document.createElement("tr")
-                    for(let col = 0; col < board.board[row].length; col++){
-                        let td = document.createElement("td")
-                        td.innerHTML = board.maskedBoard[row][col]
-                        td.addEventListener("mousedown", function(){
-                            if(event.button == 0){unitOnClick(this, row, col)}
-                            else if(event.button == 2){
-                                placeOption(this)
-                            }
-                        })
-                        tr.appendChild(td)
-                    }
-                    table.appendChild(tr)
-                }
-
-                let numberSelectRow = document.createElement("tr")
-                numberSelectRow.classList.add("numberSelect")
-                for(let i = 1; i<=9; i++){
-                    let numberSelectTd = document.createElement("td")
-                    numberSelectTd.innerHTML = "" + i
-                    numberSelectTd.onclick = function(){numberSelectOnClick(this, i)}
-                    numberSelectRow.appendChild(numberSelectTd)
-                }
-                table.appendChild(numberSelectRow)
-
-                table.classList.add("center")
-
-                boardContainer.appendChild(table)
-            }
-
-            function start(){
-                document.getElementById("game").style.display = ""
-                document.getElementById("settings").style.display = "none"
-                createBoard()
-                updateProgressBar()
-                updateStrikes()
-                updateHints()
-            }
-
-            function changeBoardWidth(){
-                let range = document.getElementById("widthRange")
-                let board = document.getElementsByTagName("table")[0]
-                board.style.width = "" + range.value + "%"
-                console.log("" + range.value + "%")
-            }
-
-        </script>
     </head>
     <body class="gradientBackground">
         <ul class="navigation">
             <li><a href="/#home" >Home</a></li>
             <li><a href="/#about_me">About Me</a></li>
             <li><a href="/#skillsAndLearning">Skills</a></li>
-            <li><a href="/#projects">Projects</a></li>
-            <li style="border-right: 1px solid white;"><a href="/#education">Education</a></li>
+            <li  style="border-right: 1px solid white;"><a href="/#projects">Projects</a></li>
 
             <li ><a href="ecosystem">Ecosystem</a></li>
             <li ><a href="nandCalculator">nandCalculator</a></li>
@@ -382,19 +81,26 @@
                 <p>You can customize a lot of options before playing. You can change the difficulty to alter how many tiles are shown, change the number of failed guesses before losing, or change the number of hints you have.</p>
                 <p>When playing, click on the numbers at the bottom in orange to "select" a number, then right click in a tile to put a marker or left to put a guess.</p>
                 <p>This project challenged me with more algorithmic problems, as well as fiddling around with JS and CSS a lot. Each board is randomly generated from the start, and making that algorithm was a challenge. But, I love Sudoku, and I'm very proud of the end product.</p>
-                <button onclick="togglePopup('popup-help')">Close</button>
+                <button style="background-color: red" onclick="togglePopup('popup-help')">Close</button>
             </div>
         </div>
 
         <div class="popup" id="popup-code">
             <div class="popup-message" style="height: 75%;">
-                <h1>Code</h1>
-                <p style="text-align: left; padding: 10px;" id="code"></code><p>
-                <button onclick="togglePopup('popup-code')">Close</button>
+                <div class="popup-bar">
+                    <button name="js" onclick="changeCode(this)"><i class="fa-brands fa-js"></i></button>
+                    <button name="css" onclick="changeCode(this)"><i class="fa-brands fa-css3-alt"></i></button>
+                    <button name="html" onclick="changeCode(this)"><i class="fa-brands fa-html5"></i></button>
+                    <button style="background-color: red" onclick="togglePopup('popup-code')">Close</button>
+                </div>
+                <h1 id="code-name">Code</h1>
+                <p class="codeDisplay" id="js"></p>
+                <p class="codeDisplay" id="css"></p>
+                <p class="codeDisplay" id="html"></p>
             </div>
         </div>
 
-        <section class="footer">
+        <section class="footer" style="margin-top: 0px">
             <div>
                <p>Made with <a href="https://github.com/Nathan-Cherny/Music-Player" target="_blank">🎵</a></p> 
             </div>
@@ -405,7 +111,6 @@
                     <a href="/#about_me">About Me</a>
                     <a href="/#skillsAndLearning">Skills</a>
                     <a href="/#myProjects">Projects</a>
-                    <a href="/#education">Education</a>
                 </div>
              </div>
             <div>

@@ -53,5 +53,10 @@
         "name": "Java",
         "image": "https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png",
         "experience": 3
+    },
+    {
+        "name": "Git",
+        "image": "https://git-scm.com/images/logos/downloads/Git-Icon-White.png",
+        "experience": 3
     }
 ]

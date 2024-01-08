@@ -13,8 +13,7 @@
             <li><a href="/#home" >Home</a></li>
             <li><a href="/#about_me">About Me</a></li>
             <li><a href="/#skillsAndLearning">Skills</a></li>
-            <li><a href="/#projects">Projects</a></li>
-            <li style="border-right: 1px solid white;"><a href="/#education">Education</a></li>
+            <li  style="border-right: 1px solid white;"><a href="/#projects">Projects</a></li>
 
             <li class="active"><a href="ecosystem">Ecosystem</a></li>
             <li ><a href="nandCalculator">nandCalculator</a></li>
@@ -74,11 +73,18 @@
             </div>
         </div>
 
-        <div class="popup" id="popup-code" >
+        <div class="popup" id="popup-code">
             <div class="popup-message" style="height: 75%;">
-                <h1>Code</h1>
-                <p style="text-align: left; padding: 10px;" id="code"></code><p>
-                <button onclick="togglePopup('popup-code')">Close</button>
+                <div class="popup-bar">
+                    <button name="js" onclick="changeCode(this)"><i class="fa-brands fa-js"></i></button>
+                    <button name="css" onclick="changeCode(this)"><i class="fa-brands fa-css3-alt"></i></button>
+                    <button name="html" onclick="changeCode(this)"><i class="fa-brands fa-html5"></i></button>
+                    <button style="background-color: red" onclick="togglePopup('popup-code')">Close</button>
+                </div>
+                <h1 id="code-name">Code</h1>
+                <p class="codeDisplay" id="js"></p>
+                <p class="codeDisplay" id="css"></p>
+                <p class="codeDisplay" id="html"></p>
             </div>
         </div>
 
@@ -93,7 +99,6 @@
                     <a href="/#about_me">About Me</a>
                     <a href="/#skillsAndLearning">Skills</a>
                     <a href="/#myProjects">Projects</a>
-                    <a href="/#education">Education</a>
                 </div>
              </div>
             <div>

@@ -1,4 +1,3 @@
-extend footer all the way down?
 make mainDiv background something cool
     dont change the color but just have something cool
 transitions on home!
@@ -12,19 +11,8 @@ popups
     change whats this project text
     code make comments different color
     add more comments
+    css html also
 home page
-    home
-        buttons, resume, links
-        change picture
-        add best skills
-    about me
-        picture
-        text
-    skills
-        add more
-        change years to level, Enum idea
-    projects
-        do all of it, just kinda like skills
-    education
-        yeah
-    active navbar is buggy
+    get picture for about me
+    navbar fix?
+    code on home

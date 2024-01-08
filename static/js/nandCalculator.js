@@ -252,4 +252,100 @@ function twoComplement(number){
     return convertBoolToInt(thirtytwoBitAdder.logic(newWord2, createList(32), 1))
 }
 
+// html stuff
 
+function binaryToDecimal(binary){
+    return parseInt(binary.join(""), 2)
+}
+
+function calculateAnswer(){ // this function parses the data given by the buttons and sends it to the js function
+    
+    // get the binary representations (and the subtract signal)
+    let binaryContainers = document.getElementsByClassName("32bit")
+    let subtract = document.getElementById("subtract").checked
+    let signal = []
+    
+    for(container of binaryContainers){
+        signal.push(getBinary(container))
+    }
+    signal.push(subtract)
+
+    let trueFalseAnswer = thirtyTwoBitAdderSubtractor.logic(signal[0], signal[1], signal[2])
+    let binaryAnswer = convertBoolToBin(trueFalseAnswer)
+
+    // checking for negative numbers (using the carry output) algorithm is talked about in js
+    if(signal[2]){
+        isPositive = binaryAnswer[0]
+        if(isPositive){
+            binAnswer = binaryAnswer.slice(0, 1) + " " + binaryAnswer.slice(1).join("")
+            decAnswer = binaryToDecimal(binaryAnswer.slice(1))
+        }
+        else{
+            binaryAnswer = twoComplement(binaryAnswer)
+            binAnswer = binaryAnswer.slice(0, 1) + " " + binaryAnswer.slice(1).join("")
+            decAnswer = "-" + binaryToDecimal(binaryAnswer.slice(1))
+        }
+    }
+    else{
+        decAnswer = binaryToDecimal(binaryAnswer)
+        binAnswer = binaryAnswer.join("")
+    }
+
+    // outputting answer
+    document.getElementById("decAnswer").innerHTML = decAnswer
+    document.getElementById("binAnswer").innerHTML = binAnswer
+}
+
+// various helper functions for quality of life and smaller necessary details
+
+function convertBoolToBin(boolBinaryNumber){
+    let binaryAnswer = []
+
+    for(val of boolBinaryNumber){
+        binaryAnswer.push(val ? 1 : 0)
+    }
+
+    return binaryAnswer
+}
+
+function changeCalcButtonEquation(){
+    let button = document.getElementById("calcButton")
+    let buttonText = "Calculate: "
+    let decNumbers = document.getElementsByClassName("32toDecimal")
+    let operation = document.getElementById("subtract").checked ? "-" : "+"
+    
+    buttonText = buttonText + decNumbers[0].innerHTML + " " + operation + " " + decNumbers[1].innerHTML
+    button.innerHTML = buttonText
+}
+
+function getBinary(container){
+    let binary = []
+    for(checkbox of container.children){
+        binary.push(Number(checkbox.checked))
+    }
+    return binary
+}
+
+function createThirtyTwoBitInput(){ // creating the GUI
+    let thirtytwoBit = document.getElementsByClassName("32bit")
+    for(input of thirtytwoBit){
+        for(let i = 0; i < 32; i+=1){
+            let checkbox = document.createElement("input")
+            checkbox.type = "checkbox"
+            input.appendChild(checkbox)
+        }
+        input.onchange = function(){
+            // set the text in the individual divs to be the new decimal number
+            decimalNumber = binaryToDecimal(getBinary(this))
+            this.nextSibling.nextSibling.innerHTML = decimalNumber
+
+            // update the equation in the button:
+            changeCalcButtonEquation()
+        }
+    }
+}
+
+function createCalculator(){
+    createThirtyTwoBitInput()
+    calculateAnswer() // calculate answer just so the button says 0+0=0
+}
