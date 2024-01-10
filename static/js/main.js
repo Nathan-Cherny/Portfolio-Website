@@ -1,19 +1,21 @@
-    async function getJsonData(json){ // json can be either skills, learning, or projects
-        return fetch('static/json/' + json + '.json')
-            .then(response => response.json())
-            .then(data => {
-                return data
-            });
-    }
 
-    async function showJsonData(json, card=false){ // card is true for projects 
-        let data = await getJsonData(json)
+    function putJSONIntoPage(json, data, card){
         let grid = document.getElementById(json)
 
-        for(item of data){
+        for(let item of data){
             div = card ? generateCard(item) : generateDoor(item)
             grid.appendChild(div)
         }
+    }
+
+    function showJsonData(json, card=false){ // card is true for projects 
+        $.ajax({
+            "url": 'static/json/' + json + '.json',
+            "async": false,
+            "success": function(data){
+                putJSONIntoPage(json, data, card)
+            }
+        })
     }
 
     function randint(min, max){
@@ -104,10 +106,11 @@
     }
 
     function whenLoaded(){
-        getSectionsBoundaries()
+        
         showJsonData("skills")
         showJsonData("learning")
         showJsonData("projects", card=true)
+        getSectionsBoundaries()
         document.onscroll = checkSectionActivity
     }
 
@@ -127,6 +130,8 @@
             })
             i++
         }
+
+        // console.log(boundaries)
     }
 
     function changeActivity(active, li){
@@ -136,6 +141,7 @@
 
     function checkSectionActivity(){
         let currentScroll = document.documentElement.scrollTop
+        console.log(currentScroll)
         let lis = document.getElementsByTagName("li")
         let activeLi = document.getElementsByClassName("active")[0]
 

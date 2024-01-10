@@ -7,17 +7,14 @@ class Gate{
     }
 }
 
-function convertBoolToInt(list_){ // better to have 1's and 0's rather than true's and false's for numbers. this function does that.
-    converted = []
+function convertBoolToBin(list_){ // better to have 1's and 0's rather than true's and false's for numbers. this function does that.
+    let binaryAnswer = []
+
     for(val of list_){
-        if(val){
-            converted.push(1)
-        }
-        else{
-            converted.push(0)
-        }
+        binaryAnswer.push(val ? 1 : 0)
     }
-    return converted
+
+    return binaryAnswer
 }
 
 nandCounter = 0
@@ -249,7 +246,7 @@ function twoComplement(number){
         xor.logic(word2[30], subtract),
         xor.logic(word2[31], subtract),
     ]
-    return convertBoolToInt(thirtytwoBitAdder.logic(newWord2, createList(32), 1))
+    return convertBoolToBin(thirtytwoBitAdder.logic(newWord2, createList(32), 1))
 }
 
 // html stuff
@@ -297,16 +294,6 @@ function calculateAnswer(){ // this function parses the data given by the button
 }
 
 // various helper functions for quality of life and smaller necessary details
-
-function convertBoolToBin(boolBinaryNumber){
-    let binaryAnswer = []
-
-    for(val of boolBinaryNumber){
-        binaryAnswer.push(val ? 1 : 0)
-    }
-
-    return binaryAnswer
-}
 
 function changeCalcButtonEquation(){
     let button = document.getElementById("calcButton")

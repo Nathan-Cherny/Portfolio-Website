@@ -276,6 +276,14 @@ class Game{ // this is the central class that works everything
         report['generation'] = this.generation
         return report  
     }
+
+    totalPopulation(){
+        let totalPopulation = 0
+        totalPopulation += Fish.all.length
+        totalPopulation += Shark.all.length
+        totalPopulation += Plant.all.length
+        return totalPopulation
+    }
 }
 
 // for html
@@ -316,7 +324,8 @@ function updateCharts(){
     console.log(report)
     updateChartData(report)
     renderAllCharts()
-    if(!(game.generation < game.endGeneration && game.populationsAreAlive())){
+    if(!(game.generation < game.endGeneration && game.populationsAreAlive() && game.totalPopulation() < 25000)){
+        console.log(game.totalPopulation())
         updateChartData(game.generateReport())
         renderAllCharts()
         clearInterval(updateChartsInterval)

@@ -20,7 +20,7 @@
             <li><a href="sudoku">Sudoku</a></li>
 
             <li onclick="togglePopup('popup-code')" style="float: right"><a ><b>Code</b></a></li>
-            <li onclick="togglePopup('popup-help')" style="float: right"><a><b>What is this project?</b></a></li>
+            <li onclick="togglePopup('popup-help')" style="float: right"><a href="#"><b>What is this project?</b></a></li>
         </ul>
 
         <div id="graphs" class="mainDiv" style="display: none">
@@ -65,18 +65,20 @@
 
         <div class="popup" id="popup-help">
             <div class="popup-message">
-                <h1>Ecosystem Simulator</h1>
-                <p>This project simulates a natural ecosystem! There are Fish, Shark, and Plants. Fish eat the Plants, Sharks eat the Fish.</p>
-                <p>The core goal of this project is to simulate natural selection, well, naturally. Each animal has many different traits which help further their survival. <a>Here's the list of all the traits and what they do</a>:</p>
-            
-                <p>Running the simulation generates graphs that show the average value of each trait. You should see that as, for example, Sharks start eating all the fish, toward the end, the average Speed trait for the Fish is higher. Natural selection!</p>
-                <p>This project challenged me in organizational ways. Having multiple instances of classes interact with each other, while recording everything and graphing it all required a lot of clear organization.</p>
+                <section>
+                    <h1>Ecosystem Simulator</h1>
+                    <p>This project simulates a natural ecosystem! There are Fish, Shark, and Plants. Fish eat the Plants, Sharks eat the Fish.</p>
+                    <p>The core goal of this project is to simulate natural selection, well, naturally. Each animal has many different traits which help further their survival. <a>Here's the list of all the traits and what they do</a>:</p>
                 
-                <hr>
-
+                    <p>Running the simulation generates graphs that show the average value of each trait. You should see that as, for example, Sharks start eating all the fish, toward the end, the average Speed trait for the Fish is higher. Natural selection!</p>
+                    <p>This project challenged me in organizational ways. Having multiple instances of classes interact with each other, while recording everything and graphing it all required a lot of clear organization.</p>
+                    
+                    <hr>
+                </section>
                 <section class="sectionHelp" id="populationHelp">
                     <h2>Population Help</h2>
                     <p>These settings are for controlling the population, as well as determining when to stop the simulation.</p>
+                    <p>Note that the total population (so all the Sharks, Fish, and Plants combined) cannot exceed 25000.</p>
                 </section>
                 <hr>
                 <section class="sectionHelp" id="plantHelp">
@@ -84,13 +86,16 @@
                     <p>These settings determine some variables of the Plants.</p>
                     <p>Plant Calories is how much hunger eating a plant replenishes to a Fish. The higher the number here, the less the Fish will be hungry overall.</p>
                     <p>Plant Growth is how quickly the Plants themselves reproduce and spread. A low Plant Growth will mean Plants will quickly run out.</p>
+                    <p>The (Low) and (High) are the range that the stats can be generated between.</p>
                 </section>
                 <hr>
                 <section class="sectionHelp"  id="statsHelp">
                     <h2>Animal Traits Help</h2>
+                    <p>These settings determine the traits of both Sharks and Fish.</p>
                     <p>Speed - If a Shark is trying to eat a Fish and its Speed is higher than the Fish's, it'll eat it. If not, the Fish will survive.</p>
                     <p>Metabolism - How quickly it gets hungry.</p>
                     <p>Mating Desire - How quickly it'll start looking for mates and reproduce.</p> 
+                    <p>The (Low) and (High) are the range that the stats can be generated between.</p>
                 </section>
 
                 
