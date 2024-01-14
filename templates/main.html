@@ -7,14 +7,14 @@
         <script src="{{url_for('static', filename='/js/main.js')}}"></script>
         <script src="{{url_for('static', filename='/js/all.js')}}"></script>
         <script src="https://kit.fontawesome.com/6566feb177.js" crossorigin="anonymous"></script>
-        
+
     </head>
     <body onload="whenLoaded()" class="gradientBackground   ">
         <ul class="navigation">
             <li class="active"><a href="/#home" >Home</a></li>
             <li><a href="/#about_me">About Me</a></li>
             <li><a href="/#skillsAndLearning">Skills</a></li>
-            <li  style="border-right: 1px solid white;"><a href="/#myProjects">Projects</a></li>i>
+            <li  style="border-right: 1px solid white;"><a href="/#myProjects">Projects</a></li>
 
             <li><a href="ecosystem">Ecosystem</a></li>
             <li><a href="nandCalculator">nandCalculator</a></li>
@@ -22,7 +22,7 @@
 
             <li onclick="togglePopup('popup-code')" style="float: right"><a ><b>Code</b></a></li>
         </ul>
-        
+
         <section id="home" class="divider gradientBackground" style="border: none">
 
             <div class="horizontal">
@@ -58,7 +58,7 @@
                     <div class="door" style="flex-direction: column;">
                         <i class="fa-solid fa-database fa-3x"></i>
                         <h2>Data<br>Management</h2>
-                    </div>    
+                    </div>
                 </div>
                 <a href="#skillsAndLearning" class="door importantButton">And More! <i class="fa-solid fa-arrow-down"></i></a>
             </div>
@@ -68,14 +68,17 @@
         <section id="about_me" class="divider" style="background-color: rgb(14, 63, 26);">
             <h1>About Me</h1>
             <div class="horizontal">
-                <img src="{{url_for('static', filename='/resources/me.png')}}">
+                <div class="imgExplanation">
+                    <img src="{{url_for('static', filename='/resources/hackathon.jpg')}}">
+                    <p>Me with my group at OWLHacks 2023</p>
+                </div>
+                
                 <p>
-                    Hi! I'm Nathan, and that's me on the left coding when I was around 12 or so. When I say that I've been coding for as long as I can remember, 
-                    I mean it. It began when I was single-digits years old and got to, well, this. Coding has always been a passion of mine, and I want to use 
-                    that passion to make an impact on the world around me.
+                    Hi! I'm Nathan, a passionate programmer looking for real world experience and an opportunity to use my skills to make an impact.
                     <br></br>
-                    I'm almost 100% self-taught, watching tutorials and making projects because it was fun. That continues to this day, and won't
-                    ever end.
+                    While I don't remember a time where I hadn't enjoyed coding, I started taking it more seriously when I was around 12, teaching myself Python and making simple projects just for fun.
+                    <br></br>
+                    Since then, I've learned languages, made projects, and developed my passion even further; now, I'm confident that I can use my passion to help create a project I can be proud of!
                 </p>
             </div>
         </section>
@@ -116,7 +119,7 @@
 
         <section class="footer">
             <div>
-               <p>Made with <a href="https://github.com/Nathan-Cherny/Music-Player" target="_blank">🎵</a></p> 
+               <p>Made with <a href="https://github.com/Nathan-Cherny/Music-Player" target="_blank">🎵</a></p>
             </div>
             <div>
                 <h2 style="text-align: left;">Links</h2>
@@ -136,6 +139,6 @@
                 </div>
             </div>
         </section>
-        
+
     </body>
 </html>

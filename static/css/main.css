@@ -30,7 +30,7 @@ h2{
     height: 150px;
 }
 
-.horizontal img{
+.horizontal > img{
     max-width: 50%;
     max-height: 50%;
     border-radius: 100px;

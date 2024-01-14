@@ -272,6 +272,32 @@ button{
     color: rgb(177, 116, 240)
 }
 
+.imgExplanation{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    border-radius: 5px;
+}
+
+.imgExplanation img{
+    width: 100%;
+    height: 90%;
+    border-radius: 0px;
+}
+
+.imgExplanation p{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1aaa1a;
+    text-align: center;
+    font-size: 75%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
 .importantButton{
     font-size: 20px;
     padding: 10px 20px 10px 20px;
